@@ -1,5 +1,14 @@
 package com.book.lending.exception;
 
-public class BookLendingException extends RuntimeException{
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+@AllArgsConstructor
+@Setter
+@Getter
+public class BookLendingException extends RuntimeException{
+	
+	private static final long serialVersionUID = 1L;	
+	private String message;
 }
