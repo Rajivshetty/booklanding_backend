@@ -1,4 +1,4 @@
-package com.book.lending.exception;
+package com.book.lending.dto;
 
 import java.io.Serializable;
 
@@ -7,15 +7,13 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class ErrorResponse implements Serializable {
-
+public class RequestBook implements Serializable {
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	private String message;
-
-	private Integer statusCode;
+	private Integer bookId;
+	private Integer userId;
 
 }
