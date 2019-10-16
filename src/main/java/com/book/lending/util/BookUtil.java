@@ -13,4 +13,8 @@ public class BookUtil {
 	public static final String BOOK_REQUEST_AVAILABLE = "AVAILABLE";
 	public static final String BOOK_REQUEST_NOT_AVAILABLE = "NOT AVAILABLE";
 	public static final String NO_BOOK_FOUND = "No Book Found With The Given Id";
+	
+	public static final String status = "AVAILABLE";
+	public static final String addBook = "ADDED SUCCESSFULLY";
+	public static final String getBooks = "GET BOOK LIST SUCCESSFULLY";
 }

@@ -1,21 +1,24 @@
 package com.book.lending.exception;
 
-import java.io.Serializable;
+import java.time.LocalDate;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+@NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
-public class ErrorResponse implements Serializable {
+public class ErrorResponse {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+	public ErrorResponse(LocalDate now, String message2, String description) {
+	}
+	private LocalDate timestamp;
 	private String message;
+	private int statusCode;
 
-	private Integer statusCode;
 
 }
