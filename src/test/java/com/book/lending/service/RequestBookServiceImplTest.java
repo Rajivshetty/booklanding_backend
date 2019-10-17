@@ -71,18 +71,6 @@ public class RequestBookServiceImplTest {
 	}
 
 	@Test(expected = BookLendingException.class)
-	public void testRequestingBookRequest() {
-
-		ResponseDto responseDTO = new ResponseDto();
-		responseDTO.setStatusCode(BookUtil.BOOK_REQUEST_SUCCESS_CODE);
-
-		Mockito.when(bookRepository.findByBookIdAndStatus(Mockito.anyInt(), Mockito.any()))
-				.thenReturn(Optional.of(book));
-		RequestBookServiceImpl.requestingBook(requestBook);
-
-	}
-
-	@Test(expected = BookLendingException.class)
 	public void testRequestingBookRequest1() {
 		BookRequest bookRequest = new BookRequest();
 

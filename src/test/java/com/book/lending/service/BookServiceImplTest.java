@@ -1,7 +1,6 @@
 package com.book.lending.service;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,14 +11,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.BeanUtils;
 
 import com.book.lending.dto.AddBookDto;
 import com.book.lending.dto.AddBookResponseDto;
 import com.book.lending.dto.BookDto;
 import com.book.lending.dto.BookListDto;
 import com.book.lending.entity.Book;
-import com.book.lending.exception.BookLendingException;
 import com.book.lending.repository.BookRepository;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -67,19 +64,6 @@ public class BookServiceImplTest {
 		Mockito.when(bookRepo.save(Mockito.any())).thenReturn(book);
 		AddBookResponseDto obj = bookService.addBook(addBookDto);
 		assertEquals(addBookResponseDto.getMessage(), obj.getMessage());
-	}
-	
-	@Test(expected = BookLendingException.class)
-	public void testAddBookException() {
-		AddBookDto addBookDto = new AddBookDto();
-		addBookDto.setAuthor("Shakes");
-		addBookDto.setCategoryType("Fiction");
-		AddBookResponseDto addBookResponseDto = new AddBookResponseDto();
-		addBookResponseDto.setMessage("ADDED SUCCESSFULLY");
-		Book book = new Book();
-		book.setAuthor("Shakes");
-		book.setCategoryId(1);
-		AddBookResponseDto obj = bookService.addBook(addBookDto);
 	}
 
 }
