@@ -34,7 +34,7 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public BookListDto getBookList() {
 
-		log.info("get book list method in book service");
+		log.debug("get book list method in book service");
 
 		List<BookDto> bookDtoList = new ArrayList<>();
 		List<Book> book = bookRepository.findAll();
@@ -47,7 +47,7 @@ public class BookServiceImpl implements BookService {
 
 		BookListDto bookList = new BookListDto();
 		bookList.setBookDto(bookDtoList);
-		bookList.setMessage(BookUtil.getBooks);
+		bookList.setMessage(BookUtil.GETBOOKS);
 		bookList.setStatusCode(HttpStatus.OK.value());
 		return bookList;
 	}
@@ -60,7 +60,7 @@ public class BookServiceImpl implements BookService {
 		int bookNum = (int) (Math.random() * 9000) + 1000;
 		
 		Book book = new Book();
-		book.setStatus(BookUtil.status);
+		book.setStatus(BookUtil.STATUS);
 		book.setBookNum(bookNum);
 		book.setAuthor(addBookDto.getAuthor());
 		book.setBookName(addBookDto.getBookName());
@@ -79,7 +79,7 @@ public class BookServiceImpl implements BookService {
 		if (Objects.isNull(book1)) 
 			throw new BookLendingException(BookUtil.ADD_BOOK_FAILURE);
 		else 
-			addBookResponseDto.setMessage(BookUtil.addBook);
+			addBookResponseDto.setMessage(BookUtil.ADDBOOK);
 		
 		addBookResponseDto.setStatusCode(HttpStatus.OK.value());
 		return addBookResponseDto;
