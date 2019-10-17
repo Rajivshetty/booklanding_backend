@@ -28,7 +28,7 @@ public class RequestBookController {
 	@Autowired
 	RequestBookService requestBookService;
 
-	@PostMapping("/books")
+	@PostMapping("/book")
 	public ResponseEntity<ResponseDto> requestBook(@RequestBody RequestBook requestBook) {
 
 		return new ResponseEntity<>(requestBookService.requestingBook(requestBook), HttpStatus.CREATED);
