@@ -18,7 +18,6 @@ import com.book.lending.service.BorrowBookService;
  * @author User1
  *
  */
-
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = { "*", "*/" }, allowedHeaders = { "*", "*/" })
@@ -27,7 +26,8 @@ public class BorrowBookController {
 	@Autowired
 	private BorrowBookService borrowBookService;
 	
-	@PostMapping("/issuedbooks")
+
+	@PostMapping("/books/borrow")
 	public ResponseEntity<BorrowBookResponseDto> issueBook(@RequestBody BorrowBookRequestDto borrowBookRequestDto ) {
 		
 	return new ResponseEntity<BorrowBookResponseDto>(borrowBookService.issueBookService(borrowBookRequestDto.getBookId(), borrowBookRequestDto.getUserId()), HttpStatus.CREATED)	;

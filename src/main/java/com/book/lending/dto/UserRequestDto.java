@@ -1,44 +1,21 @@
-package com.book.lending.entity;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+package com.book.lending.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name="User")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class UserRequestDto {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer userId;
 	private String userName;
 	private String userEmail;
 	private Long phoneNo;
 	private String password;
 	private String address;
-	/**
-	 * @return the userId
-	 */
-	public Integer getUserId() {
-		return userId;
-	}
-	/**
-	 * @param userId the userId to set
-	 */
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
 	/**
 	 * @return the userName
 	 */
@@ -99,7 +76,6 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
 	
 	
 }

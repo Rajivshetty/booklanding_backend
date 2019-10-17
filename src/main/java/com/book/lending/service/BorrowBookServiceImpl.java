@@ -29,8 +29,7 @@ import com.book.lending.util.BookUtil;
 @Service
 public class BorrowBookServiceImpl implements BorrowBookService {
 
-	// public static final Logger logger =
-	// LoggerFactory.getLogger(BorrowBookServiceImpl.class);
+	 public static final Logger log =LoggerFactory.getLogger(BorrowBookServiceImpl.class);
 
 	@Autowired
 	private BookLendingRepository bookLendingRepository;

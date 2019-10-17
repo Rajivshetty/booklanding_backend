@@ -1,37 +1,23 @@
-package com.book.lending.entity;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+package com.book.lending.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-@Entity
-@Table(name="Book")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Book {
+public class BookDto {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer bookId;
 	private String bookName;
 	private Integer bookNum;
 	private String author;
 	private String language;
-	private Integer categoryId;
-	private Integer copyRight;
 	private Integer edition;
 	private String status;
+	private Integer bookId;
 	/**
 	 * @return the bookId
 	 */
@@ -55,6 +41,18 @@ public class Book {
 	 */
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
+	}
+	/**
+	 * @return the bookNum
+	 */
+	public Integer getBookNum() {
+		return bookNum;
+	}
+	/**
+	 * @param bookNum the bookNum to set
+	 */
+	public void setBookNum(Integer bookNum) {
+		this.bookNum = bookNum;
 	}
 	/**
 	 * @return the author
@@ -81,30 +79,6 @@ public class Book {
 		this.language = language;
 	}
 	/**
-	 * @return the categoryId
-	 */
-	public Integer getCategoryId() {
-		return categoryId;
-	}
-	/**
-	 * @param categoryId the categoryId to set
-	 */
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
-	}
-	/**
-	 * @return the copyRight
-	 */
-	public Integer getCopyRight() {
-		return copyRight;
-	}
-	/**
-	 * @param copyRight the copyRight to set
-	 */
-	public void setCopyRight(Integer copyRight) {
-		this.copyRight = copyRight;
-	}
-	/**
 	 * @return the edition
 	 */
 	public Integer getEdition() {
@@ -128,21 +102,6 @@ public class Book {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	/**
-	 * @return the bookNum
-	 */
-	public Integer getBookNum() {
-		return bookNum;
-	}
-	/**
-	 * @param bookNum the bookNum to set
-	 */
-	public void setBookNum(Integer bookNum) {
-		this.bookNum = bookNum;
-	}
-	
-	
-	
 	
 	
 }

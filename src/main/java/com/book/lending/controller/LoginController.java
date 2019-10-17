@@ -1,5 +1,6 @@
 package com.book.lending.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import com.book.lending.service.LoginService;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = { "*", "*/" }, allowedHeaders = { "*", "*/" })
+
 public class LoginController {
 
 	@Autowired

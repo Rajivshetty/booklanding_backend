@@ -2,9 +2,6 @@ package com.book.lending.util;
 
 public class BookUtil {
 	
-	public static final Integer BORROW_STATUS_CODE=201;
-	public static final String BORROW_STATUS__MESSAGE="book issued successfully";
-	public static final String BORROW_EXCEPTION_MESSAGE="Please Check the userId and bookId";
 	
 
 	public static final String CREDENTIALS_EMPTY = "UserName or Password cannot be empty";
@@ -19,4 +16,17 @@ public class BookUtil {
 	public static final String BOOK_REQUEST_NOT_AVAILABLE = "NOT AVAILABLE";
 	public static final String NO_BOOK_FOUND = "No Book Found With The Given Id";
 
+	
+	public static final String status = "AVAILABLE";
+	public static final String addBook = "ADDED SUCCESSFULLY";
+	public static final String getBooks = "GET BOOK LIST SUCCESSFULLY";
+	
+	public static final Integer BORROW_STATUS_CODE=201;
+	public static final String BORROW_STATUS__MESSAGE="book issued successfully";
+	public static final String BORROW_EXCEPTION_MESSAGE="Please Check the userId and bookId";
+	
+	public static final String REGISTER_SUCCESS = "Register Successfully";
+	public static final String REGISTER_FAILURE = "Not registerd successfully";
+	public static final String CATEGORY_TYPE = "Fiction";
+	public static final String ADD_BOOK_FAILURE = "Added book exception";
 }
