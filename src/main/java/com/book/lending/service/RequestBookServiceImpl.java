@@ -4,7 +4,6 @@ package com.book.lending.service;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +31,14 @@ public class RequestBookServiceImpl implements RequestBookService {
 	BookRequestRepository bookRequestRepository;
 	@Autowired
 	BookRepository bookRepository;
+
+	/**
+	 * @param RequestBook
+	 * @return ResponseDto
+	 * @throws BookLendingException 
+	 * This method takes the request for a particular
+	 * book if it is not availale
+	 */
 
 	@Override
 	public ResponseDto requestingBook(RequestBook requestBook) {
