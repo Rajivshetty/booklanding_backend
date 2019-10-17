@@ -2,6 +2,8 @@ package com.book.lending.service;
 
 import java.util.Objects;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +20,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
-
+	private static final Logger log = LoggerFactory.getLogger(RequestBookServiceImpl.class);
+	
 	@Autowired
 	UserRepository userRepository;
 

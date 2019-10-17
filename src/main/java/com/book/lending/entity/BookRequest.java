@@ -27,4 +27,54 @@ public class BookRequest {
 	private Integer bookId;
 	private LocalDate requestDate;
 	private Integer userId;
+	/**
+	 * @return the bookRequestId
+	 */
+	public Integer getBookRequestId() {
+		return bookRequestId;
+	}
+	/**
+	 * @param bookRequestId the bookRequestId to set
+	 */
+	public void setBookRequestId(Integer bookRequestId) {
+		this.bookRequestId = bookRequestId;
+	}
+	/**
+	 * @return the bookId
+	 */
+	public Integer getBookId() {
+		return bookId;
+	}
+	/**
+	 * @param bookId the bookId to set
+	 */
+	public void setBookId(Integer bookId) {
+		this.bookId = bookId;
+	}
+	/**
+	 * @return the requestDate
+	 */
+	public LocalDate getRequestDate() {
+		return requestDate;
+	}
+	/**
+	 * @param requestDate the requestDate to set
+	 */
+	public void setRequestDate(LocalDate requestDate) {
+		this.requestDate = requestDate;
+	}
+	/**
+	 * @return the userId
+	 */
+	public Integer getUserId() {
+		return userId;
+	}
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
+	
 }

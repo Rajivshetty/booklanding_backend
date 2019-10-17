@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import com.book.lending.entity.User;
 
+/**
+ * @author User1
+ *
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 

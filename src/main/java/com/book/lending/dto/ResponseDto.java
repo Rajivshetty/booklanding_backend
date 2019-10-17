@@ -26,5 +26,6 @@ public class ResponseDto {
 	public void setStatusCode(Integer statusCode) {
 		this.statusCode = statusCode;
 	}
+	
 
 }

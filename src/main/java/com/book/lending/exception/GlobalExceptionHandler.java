@@ -17,6 +17,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		ErrorResponse responseDto = new ErrorResponse();
 		responseDto.setMessage(ex.getMessage());
 		responseDto.setStatusCode(401);
+
 		return new ResponseEntity<>(responseDto, HttpStatus.UNAUTHORIZED);
 
 	}
@@ -29,15 +30,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	}
 
-	/*
-	 * @ExceptionHandler(BookLendingException.class) public
-	 * ResponseEntity<ErrorResponse> rmException(BookLendingException exception,
-	 * WebRequest request) { ErrorResponse errorResponse = new
-	 * ErrorResponse(LocalDate.now(), exception.getMessage(),
-	 * HttpStatus.NOT_FOUND.value()); return new ResponseEntity<>(errorResponse,
-	 * HttpStatus.NOT_FOUND);
-	 * 
-	 * }
-	 */
+	
 
 }
