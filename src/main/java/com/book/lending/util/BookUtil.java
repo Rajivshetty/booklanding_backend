@@ -1,7 +1,8 @@
 package com.book.lending.util;
 
 public class BookUtil {
-	
+	public BookUtil(){
+	}
 	
 
 	public static final String CREDENTIALS_EMPTY = "UserName or Password cannot be empty";
