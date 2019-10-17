@@ -31,4 +31,19 @@ public class LoginDTO implements Serializable {
 		return serialVersionUID;
 	}
 
+	/**
+	 * @return the userEmail
+	 */
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	/**
+	 * @param userEmail the userEmail to set
+	 */
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+	
+
 }

@@ -10,6 +10,10 @@ public class LoginResponseDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer userId;
+	private String message;
+	private Integer statusCode;
+	private String userName;
+
 
 	public Integer getUserId() {
 		return userId;
@@ -17,6 +21,7 @@ public class LoginResponseDTO implements Serializable {
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+		
 	}
 
 	public String getMessage() {
@@ -43,8 +48,5 @@ public class LoginResponseDTO implements Serializable {
 		this.userName = userName;
 	}
 
-	private String message;
-	private Integer statusCode;
-	private String userName;
 
 }

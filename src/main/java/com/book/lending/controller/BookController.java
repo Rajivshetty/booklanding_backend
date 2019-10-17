@@ -1,5 +1,7 @@
 package com.book.lending.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import com.book.lending.dto.AddBookDto;
 import com.book.lending.dto.AddBookResponseDto;
 import com.book.lending.dto.BookListDto;
 import com.book.lending.service.BookService;
+import com.book.lending.service.BorrowBookServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,7 +31,9 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 public class BookController {
-
+	
+	public static final Logger log =LoggerFactory.getLogger(BorrowBookServiceImpl.class);
+	
 	@Autowired
 	BookService bookService;
 	
@@ -40,7 +45,7 @@ public class BookController {
 	@GetMapping("/books")
 	public ResponseEntity<BookListDto> getBookList() {
 
-		log.info("get book list method in book controller");
+		log.debug("get book list method in book controller");
 		return new ResponseEntity<>(bookService.getBookList(), HttpStatus.OK);
 	}
 	
@@ -53,7 +58,7 @@ public class BookController {
 	@PostMapping("/books")
 	public ResponseEntity<AddBookResponseDto> addBook(@RequestBody AddBookDto addBookDto) {
 
-		log.info("add book to list in book controller");
+		log.debug("add book to list in book controller");
 		return new ResponseEntity<>(bookService.addBook(addBookDto), HttpStatus.OK);
 	}
 }
