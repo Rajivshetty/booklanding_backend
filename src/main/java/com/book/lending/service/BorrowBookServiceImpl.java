@@ -84,7 +84,7 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 		}
 
 		borrowBookResponseDto.setStatusCode(BookUtil.BORROW_STATUS_CODE);
-		borrowBookResponseDto.setMessage(BookUtil.BORROW_STATUS__MESSAGE);
+		borrowBookResponseDto.setMessage(BookUtil.BORROW_STATUS_MESSAGE);
 		borrowBookResponseDto.setBookName(getBook.getBookName());
 		borrowBookResponseDto.setAuthor(getBook.getAuthor());
 		borrowBookResponseDto.setLanguage(getBook.getLanguage());
