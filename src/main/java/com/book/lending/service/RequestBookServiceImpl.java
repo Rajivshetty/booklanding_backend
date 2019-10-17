@@ -42,7 +42,7 @@ public class RequestBookServiceImpl implements RequestBookService {
 		bookRequest.setBookId(requestBook.getBookId());
 		bookRequest.setUserId(requestBook.getUserId());
 		bookRequest.setRequestDate(LocalDate.now());
-		
+
 		LOGGER.info("Inside Request Book Service Impl BookId");
 
 		Optional<Book> optBook = bookRepository.findByBookIdAndStatus(requestBook.getBookId(),
@@ -57,7 +57,7 @@ public class RequestBookServiceImpl implements RequestBookService {
 				responseDTO.setStatusCode(BookUtil.BOOK_REQUEST_SUCCESS_CODE);
 			}
 		}
-		
+
 		else {
 			throw new BookLendingException(BookUtil.NO_BOOK_FOUND);
 		}

@@ -22,4 +22,8 @@ public class BookUtil {
 	public static final String BORROW_STATUS__MESSAGE="book issued successfully";
 	public static final String BORROW_EXCEPTION_MESSAGE="Please Check the userId and bookId";
 	
+	public static final String REGISTER_SUCCESS = "Register Successfully";
+	public static final String REGISTER_FAILURE = "Not registerd successfully";
+	public static final String CATEGORY_TYPE = "Fiction";
+	public static final String ADD_BOOK_FAILURE = "Added book exception";
 }
