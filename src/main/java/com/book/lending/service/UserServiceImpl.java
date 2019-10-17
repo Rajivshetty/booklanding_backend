@@ -12,6 +12,7 @@ import com.book.lending.dto.UserResponseDto;
 import com.book.lending.entity.User;
 import com.book.lending.exception.BookLendingException;
 import com.book.lending.repository.UserRepository;
+import com.book.lending.util.BookUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,9 +34,9 @@ public class UserServiceImpl implements UserService {
 		UserResponseDto userResponseDto = new UserResponseDto();
 
 		if (Objects.isNull(user1))
-			throw new BookLendingException("not registerd successfully");
+			throw new BookLendingException(BookUtil.REGISTER_FAILURE);
 		else
-			userResponseDto.setMessage("registerd successfully");
+			userResponseDto.setMessage(BookUtil.REGISTER_SUCCESS);
 
 		userResponseDto.setStatusCode(HttpStatus.OK.value());
 		return userResponseDto;

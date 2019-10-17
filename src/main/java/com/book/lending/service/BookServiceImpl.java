@@ -63,7 +63,7 @@ public class BookServiceImpl implements BookService {
 		book.setCopyRight(addBookDto.getCopyRight());
 		book.setEdition(addBookDto.getEdition());
 		book.setLanguage(addBookDto.getLanguage());
-		if (addBookDto.getCategoryType().equals("Fiction")) 
+		if (addBookDto.getCategoryType().equals(BookUtil.CATEGORY_TYPE)) 
 			book.setCategoryId(1);
 		else 
 			book.setCategoryId(2);
@@ -73,7 +73,7 @@ public class BookServiceImpl implements BookService {
 		AddBookResponseDto addBookResponseDto = new AddBookResponseDto();
 		
 		if (Objects.isNull(book1)) 
-			throw new BookLendingException("Added book exception");
+			throw new BookLendingException(BookUtil.ADD_BOOK_FAILURE);
 		else 
 			addBookResponseDto.setMessage(BookUtil.addBook);
 		

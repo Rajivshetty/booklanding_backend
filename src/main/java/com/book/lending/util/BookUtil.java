@@ -17,4 +17,8 @@ public class BookUtil {
 	public static final String status = "AVAILABLE";
 	public static final String addBook = "ADDED SUCCESSFULLY";
 	public static final String getBooks = "GET BOOK LIST SUCCESSFULLY";
+	public static final String REGISTER_SUCCESS = "Register Successfully";
+	public static final String REGISTER_FAILURE = "Not registerd successfully";
+	public static final String CATEGORY_TYPE = "Fiction";
+	public static final String ADD_BOOK_FAILURE = "Added book exception";
 }
