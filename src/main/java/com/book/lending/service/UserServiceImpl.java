@@ -16,21 +16,19 @@ import com.book.lending.exception.BookLendingException;
 import com.book.lending.repository.UserRepository;
 import com.book.lending.util.BookUtil;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Service
-@Slf4j
+
 public class UserServiceImpl implements UserService {
 	private static final Logger log = LoggerFactory.getLogger(RequestBookServiceImpl.class);
-	
+
 	@Autowired
 	UserRepository userRepository;
 
 	@Override
 	public UserResponseDto addUser(UserRequestDto userRequestDto) {
-		
+
 		log.info("registraton of the user  in user service");
-		
+
 		User user = new User();
 		BeanUtils.copyProperties(userRequestDto, user);
 		User user1 = userRepository.save(user);
