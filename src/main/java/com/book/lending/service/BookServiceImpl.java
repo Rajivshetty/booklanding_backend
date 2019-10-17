@@ -2,7 +2,6 @@ package com.book.lending.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,16 +15,14 @@ import com.book.lending.dto.AddBookResponseDto;
 import com.book.lending.dto.BookDto;
 import com.book.lending.dto.BookListDto;
 import com.book.lending.entity.Book;
-import com.book.lending.exception.BookLendingException;
 import com.book.lending.repository.BookRepository;
 import com.book.lending.util.BookUtil;
-
 
 @Service
 
 public class BookServiceImpl implements BookService {
-	
-	public static final Logger log =LoggerFactory.getLogger(BookServiceImpl.class);
+
+	public static final Logger log = LoggerFactory.getLogger(BookServiceImpl.class);
 
 	@Autowired
 	BookRepository bookRepository;
@@ -55,9 +52,9 @@ public class BookServiceImpl implements BookService {
 	public AddBookResponseDto addBook(AddBookDto addBookDto) {
 
 		log.info("add book to book list in book service");
-		
+
 		int bookNum = (int) (Math.random() * 9000) + 1000;
-		
+
 		Book book = new Book();
 		book.setStatus(BookUtil.STATUS);
 		book.setBookNum(bookNum);
@@ -66,20 +63,16 @@ public class BookServiceImpl implements BookService {
 		book.setCopyRight(addBookDto.getCopyRight());
 		book.setEdition(addBookDto.getEdition());
 		book.setLanguage(addBookDto.getLanguage());
-		if (addBookDto.getCategoryType().equals(BookUtil.CATEGORY_TYPE)) 
+		if (addBookDto.getCategoryType().equals(BookUtil.CATEGORY_TYPE))
 			book.setCategoryId(1);
-		else 
+		else
 			book.setCategoryId(2);
-		
-		
-		Book book1 = bookRepository.save(book);
+
+		bookRepository.save(book);
 		AddBookResponseDto addBookResponseDto = new AddBookResponseDto();
-		
-		if (Objects.isNull(book1)) 
-			throw new BookLendingException(BookUtil.ADD_BOOK_FAILURE);
-		else 
-			addBookResponseDto.setMessage(BookUtil.ADDBOOK);
-		
+
+		addBookResponseDto.setMessage(BookUtil.ADDBOOK);
+
 		addBookResponseDto.setStatusCode(HttpStatus.OK.value());
 		return addBookResponseDto;
 
