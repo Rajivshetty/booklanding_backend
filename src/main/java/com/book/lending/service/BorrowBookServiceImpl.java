@@ -68,7 +68,14 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 			bookLending.setUserId(getUser.getUserId());
 			bookLending.setIssuedDate(today);
 			bookLending.setSubmissionDate(nextWeek);
-
+			
+			Optional<Book>optBook=bookRepository.findById(bookId);
+			if(optBook.isPresent()) {
+				Book books=optBook.get();
+				books.setStatus(BookUtil.BOOK_REQUEST_NOT_AVAILABLE);
+			}
+			
+			
 			bookLendingRepository.save(bookLending);
 
 		} else {

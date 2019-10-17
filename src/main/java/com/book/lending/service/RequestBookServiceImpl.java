@@ -56,7 +56,7 @@ public class RequestBookServiceImpl implements RequestBookService {
 
 		if (optBook.isPresent()) {
 			BookRequest bookRequestResponse = bookRequestRepository.save(bookRequest);
-			if (Objects.isNull(bookRequestResponse)) {
+			if (bookRequestResponse==null) {
 				throw new BookLendingException(BookUtil.BOOK_REQUEST_EXCEPTION);
 			} else {
 				responseDTO.setMessage(BookUtil.BOOK_REQUEST_SUCCESS);
