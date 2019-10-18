@@ -30,4 +30,6 @@ public class BookUtil {
 	public static final String REGISTER_FAILURE = "Not registerd successfully";
 	public static final String CATEGORY_TYPE = "Fiction";
 	public static final String ADD_BOOK_FAILURE = "Added book exception";
+	public static final String INDIAN_TIME_ZONE="Asia/Kolkata";
+
 }

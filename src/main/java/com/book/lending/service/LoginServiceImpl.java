@@ -1,5 +1,10 @@
 package com.book.lending.service;
 
+import static com.book.lending.util.BookUtil.CREDENTIALS_EMPTY;
+import static com.book.lending.util.BookUtil.LOGIN_FAILURE;
+import static com.book.lending.util.BookUtil.LOGIN_SUCCESS;
+import static com.book.lending.util.BookUtil.LOGIN_SUCCESS_CODE;
+
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -12,33 +17,40 @@ import com.book.lending.dto.LoginResponseDTO;
 import com.book.lending.entity.User;
 import com.book.lending.exception.BookLendingException;
 import com.book.lending.repository.UserRepository;
-import com.book.lending.util.BookUtil;
 
-
+/**
+ * @author shiva
+ *
+ */
 @Service
 public class LoginServiceImpl implements LoginService {
-	
+
 	private static final Logger lOGGER = LoggerFactory.getLogger(LoginServiceImpl.class);
 
 	@Autowired
 	UserRepository userRepository;
 
+	/**
+	 * @param LoginDTO
+	 * @throws BookLendingException
+	 * @return LoginResponseDTO This method check whether the credentials are
+	 *         correct or in correct
+	 */
 	@Override
 	public LoginResponseDTO getUserDetails(LoginDTO loginDTO) {
-		
+
 		lOGGER.info("Inside LoginServiceImpl");
 
 		String userName = loginDTO.getUserEmail();
 		String password = loginDTO.getPassword();
-		
-		lOGGER.info(userName);
-		lOGGER.info(password);
+
+		lOGGER.info("userName:{} Password:{}", userName, password);
 
 		LoginResponseDTO loginResponseDTO = null;
 
 		if (userName.equals("") || password.equals("")) {
 
-			throw new BookLendingException(BookUtil.CREDENTIALS_EMPTY);
+			throw new BookLendingException(CREDENTIALS_EMPTY);
 
 		}
 
@@ -46,7 +58,7 @@ public class LoginServiceImpl implements LoginService {
 			Optional<User> userList = userRepository.findByUserEmailAndPassword(userName, password);
 
 			if (!(userList.isPresent())) {
-				throw new BookLendingException(BookUtil.LOGIN_FAILURE);
+				throw new BookLendingException(LOGIN_FAILURE);
 
 			}
 
@@ -56,8 +68,8 @@ public class LoginServiceImpl implements LoginService {
 				User user = userList.get();
 				loginResponseDTO.setUserName(user.getUserName());
 				loginResponseDTO.setUserId(user.getUserId());
-				loginResponseDTO.setMessage(BookUtil.LOGIN_SUCCESS);
-				loginResponseDTO.setStatusCode(BookUtil.LOGIN_SUCCESS_CODE);
+				loginResponseDTO.setMessage(LOGIN_SUCCESS);
+				loginResponseDTO.setStatusCode(LOGIN_SUCCESS_CODE);
 
 			}
 

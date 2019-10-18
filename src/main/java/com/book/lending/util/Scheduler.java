@@ -1,6 +1,7 @@
 package com.book.lending.util;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +14,9 @@ import com.book.lending.entity.Book;
 import com.book.lending.entity.BookLending;
 import com.book.lending.repository.BookLendingRepository;
 import com.book.lending.repository.BookRepository;
+
+import static com.book.lending.util.BookUtil.*;
+
 @Component
 public class Scheduler {
 
@@ -23,8 +27,8 @@ public class Scheduler {
 	BookRepository bookRepository;
 
 	@Scheduled(fixedRate = 60000)
-	public  void statusUpdate() {
-		LocalDate submissionDate=LocalDate.now();
+	public void statusUpdate() {
+		LocalDate submissionDate = LocalDate.now(ZoneId.of(INDIAN_TIME_ZONE));
 
 		List<BookLending> optBookLending = bookLendingRepository.findBySubmissionDate(submissionDate);
 		List<Book> bookList = new ArrayList<>();
@@ -34,12 +38,10 @@ public class Scheduler {
 
 			Optional<Book> optBook = bookRepository.findById(bookId);
 			Book book = optBook.get();
-			book.setStatus(BookUtil.BOOK_REQUEST_AVAILABLE);
+			book.setStatus(BOOK_REQUEST_AVAILABLE);
 			bookList.add(book);
 		});
 		bookRepository.saveAll(bookList);
-
-		
 
 	}
 

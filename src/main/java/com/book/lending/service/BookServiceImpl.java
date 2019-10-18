@@ -18,14 +18,24 @@ import com.book.lending.entity.Book;
 import com.book.lending.repository.BookRepository;
 import com.book.lending.util.BookUtil;
 
-@Service
 
+/**
+ * @author Mahesh
+ *
+ */
+@Service
 public class BookServiceImpl implements BookService {
 
 	public static final Logger log = LoggerFactory.getLogger(BookServiceImpl.class);
 
 	@Autowired
 	BookRepository bookRepository;
+	
+	/**
+	 * @return BookListDto
+	 * 
+	 * This method returns the Books List in Sorting order
+	 */
 
 	@Override
 	public BookListDto getBookList() {
@@ -33,7 +43,7 @@ public class BookServiceImpl implements BookService {
 		log.debug("get book list method in book service");
 
 		List<BookDto> bookDtoList = new ArrayList<>();
-		List<Book> book = bookRepository.findAll();
+		List<Book> book = bookRepository.findAllByOrderByBookName();
 
 		book.stream().forEach(b -> {
 			BookDto bookDto = new BookDto();
@@ -48,6 +58,11 @@ public class BookServiceImpl implements BookService {
 		return bookList;
 	}
 
+	/**
+	 * @return AddBookResponseDto
+	 * 
+	 * This method contains the logic to add book
+	 */
 	@Override
 	public AddBookResponseDto addBook(AddBookDto addBookDto) {
 

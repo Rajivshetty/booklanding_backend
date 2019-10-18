@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.book.lending.service;
 
 import java.time.LocalDate;
@@ -22,14 +20,14 @@ import com.book.lending.repository.UserRepository;
 import com.book.lending.util.BookUtil;
 
 /**
- * @author User1
+ * @author aakash
  *
  */
 
 @Service
 public class BorrowBookServiceImpl implements BorrowBookService {
 
-	 public static final Logger log =LoggerFactory.getLogger(BorrowBookServiceImpl.class);
+	public static final Logger lOGGER = LoggerFactory.getLogger(BorrowBookServiceImpl.class);
 
 	@Autowired
 	private BookLendingRepository bookLendingRepository;
@@ -40,14 +38,21 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 	@Autowired
 	private UserRepository userRepository;
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * @param bookId
+	 * @param userId
 	 * 
-	 * @see com.book.lending.service.BorrowBookService#issueBookService(java.lang.
-	 * Integer, java.lang.Integer)
+	 * @return BorrowBookResponseDto
+	 * @throws BookLendingException
+	 * 
+	 * This method has the logic to allot a book to a user
 	 */
 	@Override
 	public BorrowBookResponseDto issueBookService(Integer bookId, Integer userId) {
+
+		lOGGER.info("Borrow Book Service");
+
+		lOGGER.info("bookId:{} userId:{}", bookId, userId);
 
 		LocalDate today = LocalDate.now();
 		LocalDate nextWeek = today.plusDays(7);
@@ -60,7 +65,7 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 
 		BorrowBookResponseDto borrowBookResponseDto = new BorrowBookResponseDto();
 		if (user.isPresent() && book.isPresent()) {
-			getBook=book.get();
+			getBook = book.get();
 			getUser = user.get();
 
 			BookLending bookLending = new BookLending();
@@ -68,14 +73,13 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 			bookLending.setUserId(getUser.getUserId());
 			bookLending.setIssuedDate(today);
 			bookLending.setSubmissionDate(nextWeek);
-			
-			Optional<Book>optBook=bookRepository.findById(bookId);
-			if(optBook.isPresent()) {
-				Book books=optBook.get();
+
+			Optional<Book> optBook = bookRepository.findById(bookId);
+			if (optBook.isPresent()) {
+				Book books = optBook.get();
 				books.setStatus(BookUtil.BOOK_REQUEST_NOT_AVAILABLE);
 			}
-			
-			
+
 			bookLendingRepository.save(bookLending);
 
 		} else {
