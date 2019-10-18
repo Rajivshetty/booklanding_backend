@@ -11,6 +11,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.book.lending.dto.LoginDTO;
 import com.book.lending.dto.LoginResponseDTO;
+import com.book.lending.exception.BookLendingException;
 import com.book.lending.service.LoginServiceImpl;
 import com.book.lending.util.BookUtil;
 
@@ -24,7 +25,7 @@ public class LoginControllerTest {
 	LoginController loginController;
 
 	@Test
-	public void testGetUser() {
+	public void testGetUser() throws BookLendingException {
 		LoginDTO loginDTO = new LoginDTO();
 		loginDTO.setUserEmail("raja@gmail.com");
 		loginDTO.setPassword("raja@123");

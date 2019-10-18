@@ -17,6 +17,7 @@ import com.book.lending.dto.BorrowBookRequestDto;
 import com.book.lending.dto.BorrowBookResponseDto;
 import com.book.lending.entity.Book;
 import com.book.lending.entity.User;
+import com.book.lending.exception.BookLendingException;
 import com.book.lending.service.BorrowBookService;
 import com.book.lending.util.BookUtil;
 
@@ -36,9 +37,10 @@ public class BorrowBookControllerTest {
 
 	/**
 	 * Test method for {@link com.book.lending.controller.BorrowBookController#issueBook(com.book.lending.dto.BorrowBookRequestDto)}.
+	 * @throws BookLendingException 
 	 */
 	@Test
-	public void testIssueBook() {
+	public void testIssueBook() throws BookLendingException {
 
 		User user = new User();
 		Book book = new Book();

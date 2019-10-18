@@ -48,7 +48,7 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 	 * This method has the logic to allot a book to a user
 	 */
 	@Override
-	public BorrowBookResponseDto issueBookService(Integer bookId, Integer userId) {
+	public BorrowBookResponseDto issueBookService(Integer bookId, Integer userId) throws BookLendingException {
 
 		lOGGER.info("Borrow Book Service");
 

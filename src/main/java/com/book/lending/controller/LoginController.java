@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.book.lending.dto.LoginDTO;
 import com.book.lending.dto.LoginResponseDTO;
+import com.book.lending.exception.BookLendingException;
 import com.book.lending.service.LoginService;
 
 /**
@@ -34,9 +35,10 @@ public class LoginController {
 	 * @param LoginDTO
 	 * 
 	 * This method is used for login
+	 * @throws BookLendingException 
 	 */
 	@PostMapping("/login")
-	public ResponseEntity<LoginResponseDTO> getUser(@RequestBody LoginDTO loginDTO) {
+	public ResponseEntity<LoginResponseDTO> getUser(@RequestBody LoginDTO loginDTO) throws BookLendingException {
 		LOGGER.info("LoginController.class");
 		return new ResponseEntity<>(loginService.getUserDetails(loginDTO), HttpStatus.OK);
 

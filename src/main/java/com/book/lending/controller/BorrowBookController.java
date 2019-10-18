@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.book.lending.dto.BorrowBookRequestDto;
 import com.book.lending.dto.BorrowBookResponseDto;
+import com.book.lending.exception.BookLendingException;
 import com.book.lending.service.BorrowBookService;
 
 /**
@@ -28,7 +29,7 @@ public class BorrowBookController {
 	
 
 	@PostMapping("/books/borrow")
-	public ResponseEntity<BorrowBookResponseDto> issueBook(@RequestBody BorrowBookRequestDto borrowBookRequestDto ) {
+	public ResponseEntity<BorrowBookResponseDto> issueBook(@RequestBody BorrowBookRequestDto borrowBookRequestDto ) throws BookLendingException {
 		
 	return new ResponseEntity<>(borrowBookService.issueBookService(borrowBookRequestDto.getBookId(), borrowBookRequestDto.getUserId()), HttpStatus.CREATED)	;
 

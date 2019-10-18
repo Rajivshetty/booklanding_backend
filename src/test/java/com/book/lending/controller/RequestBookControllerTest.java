@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.book.lending.dto.RequestBook;
 import com.book.lending.dto.ResponseDto;
+import com.book.lending.exception.BookLendingException;
 import com.book.lending.service.RequestBookServiceImpl;
 import com.book.lending.util.BookUtil;
 
@@ -25,7 +26,7 @@ public class RequestBookControllerTest {
 	RequestBookController requestBookController;
 
 	@Test
-	public void testRequestBook() {
+	public void testRequestBook() throws BookLendingException {
 
 		RequestBook requestBook = new RequestBook();
 		requestBook.setBookId(1);
@@ -33,9 +34,9 @@ public class RequestBookControllerTest {
 		ResponseDto responseDTO = new ResponseDto();
 		responseDTO.setStatusCode(BookUtil.BOOK_REQUEST_SUCCESS_CODE);
 
-		Mockito.when(requestBookServiceImpl.requestingBook(requestBook)).thenReturn(responseDTO);
+		Mockito.when(requestBookServiceImpl.requestingBook(1,1)).thenReturn(responseDTO);
 
-		ResponseEntity<ResponseDto> actualValue = requestBookController.requestBook(requestBook);
+		ResponseEntity<ResponseDto> actualValue = requestBookController.requestBook(1,1);
 
 		assertEquals(responseDTO.getStatusCode(), actualValue.getBody().getStatusCode());
 

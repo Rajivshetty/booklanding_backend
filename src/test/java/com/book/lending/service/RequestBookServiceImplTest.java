@@ -56,7 +56,7 @@ public class RequestBookServiceImplTest {
 	}
 
 	@Test
-	public void testRequestingBook() {
+	public void testRequestingBook() throws BookLendingException {
 
 		ResponseDto responseDTO = new ResponseDto();
 		responseDTO.setStatusCode(BookUtil.BOOK_REQUEST_SUCCESS_CODE);
@@ -65,13 +65,13 @@ public class RequestBookServiceImplTest {
 				.thenReturn(Optional.of(book));
 		Mockito.when(bookRequestRepository.save(Mockito.any())).thenReturn(bookRequest);
 
-		ResponseDto actualValue = RequestBookServiceImpl.requestingBook(requestBook);
+		ResponseDto actualValue = RequestBookServiceImpl.requestingBook(1,1);
 		assertEquals(responseDTO.getStatusCode(), actualValue.getStatusCode());
 
 	}
 
 	@Test(expected = BookLendingException.class)
-	public void testRequestingBookRequest1() {
+	public void testRequestingBookRequest1() throws BookLendingException {
 		BookRequest bookRequest = new BookRequest();
 
 		bookRequest.setBookId(22);
@@ -79,7 +79,7 @@ public class RequestBookServiceImplTest {
 		ResponseDto responseDTO = new ResponseDto();
 		responseDTO.setStatusCode(BookUtil.BOOK_REQUEST_SUCCESS_CODE);
 
-		RequestBookServiceImpl.requestingBook(requestBook);
+		RequestBookServiceImpl.requestingBook(1,1);
 
 	}
 

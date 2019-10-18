@@ -18,12 +18,10 @@ import com.book.lending.dto.BookListDto;
 import com.book.lending.service.BookService;
 import com.book.lending.service.BorrowBookServiceImpl;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = { "*", "*/" }, allowedHeaders = { "*", "*/" })
-@Slf4j
+
 
 /**
  * 

@@ -27,7 +27,7 @@ public class LoginServiceImplTest {
 	LoginServiceImpl loginServiceImpl;
 
 	@Test
-	public void testGetUserDetails() {
+	public void testGetUserDetails() throws BookLendingException {
 		User user = new User();
 
 		user.setUserId(1);
@@ -49,7 +49,7 @@ public class LoginServiceImplTest {
 	}
 
 	@Test(expected = BookLendingException.class)
-	public void testGetUserDetailsFailure() {
+	public void testGetUserDetailsFailure() throws BookLendingException {
 		User user = new User();
 
 		user.setUserId(1);
@@ -67,7 +67,7 @@ public class LoginServiceImplTest {
 	}
 
 	@Test(expected = BookLendingException.class)
-	public void testEmptyCredentials() {
+	public void testEmptyCredentials() throws BookLendingException {
 		User user = new User();
 
 		user.setUserId(1);

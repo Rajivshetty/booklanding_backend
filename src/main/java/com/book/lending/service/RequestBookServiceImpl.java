@@ -1,7 +1,10 @@
 
 package com.book.lending.service;
 
-import static com.book.lending.util.BookUtil.*;
+import static com.book.lending.util.BookUtil.BOOK_REQUEST_NOT_AVAILABLE;
+import static com.book.lending.util.BookUtil.BOOK_REQUEST_SUCCESS;
+import static com.book.lending.util.BookUtil.BOOK_REQUEST_SUCCESS_CODE;
+import static com.book.lending.util.BookUtil.NO_BOOK_FOUND;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -11,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.book.lending.dto.RequestBook;
 import com.book.lending.dto.ResponseDto;
 import com.book.lending.entity.Book;
 import com.book.lending.entity.BookRequest;
@@ -41,21 +43,19 @@ public class RequestBookServiceImpl implements RequestBookService {
 	 */
 
 	@Override
-	public ResponseDto requestingBook(RequestBook requestBook) {
+	public ResponseDto requestingBook(Integer bookId, Integer userId) throws BookLendingException {
 
 		LOGGER.info("Inside Request Book Service Impl");
 		ResponseDto responseDTO = new ResponseDto();
 		BookRequest bookRequest = new BookRequest();
 
-		bookRequest.setBookId(requestBook.getBookId());
-		bookRequest.setUserId(requestBook.getUserId());
+		bookRequest.setBookId(bookId);
+		bookRequest.setUserId(userId);
 		bookRequest.setRequestDate(LocalDate.now());
 
-		LOGGER.info("BookId:{},UserId:{},RequestDate:{}", requestBook.getBookId(), requestBook.getUserId(),
-				LocalDate.now());
+		LOGGER.info("BookId:{},UserId:{},RequestDate:{}", bookId, userId, LocalDate.now());
 
-		Optional<Book> optBook = bookRepository.findByBookIdAndStatus(requestBook.getBookId(),
-				BOOK_REQUEST_NOT_AVAILABLE);
+		Optional<Book> optBook = bookRepository.findByBookIdAndStatus(bookId, BOOK_REQUEST_NOT_AVAILABLE);
 
 		if (optBook.isPresent()) {
 			bookRequestRepository.save(bookRequest);

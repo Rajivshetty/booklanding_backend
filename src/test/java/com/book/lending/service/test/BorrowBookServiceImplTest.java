@@ -55,7 +55,7 @@ public class BorrowBookServiceImplTest {
 	}
 
 	@Test
-	public void issueBookServiceTest() {
+	public void issueBookServiceTest() throws BookLendingException {
 
 		User user = new User();
 		Book book = new Book();
@@ -90,7 +90,7 @@ public class BorrowBookServiceImplTest {
 	}
 
 	@Test(expected = BookLendingException.class)
-	public void issueBookServiceTestException() {
+	public void issueBookServiceTestException() throws BookLendingException {
 
 		User user = new User();
 		Book book = new Book();

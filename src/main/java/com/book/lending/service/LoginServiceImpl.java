@@ -37,7 +37,7 @@ public class LoginServiceImpl implements LoginService {
 	 *         correct or in correct
 	 */
 	@Override
-	public LoginResponseDTO getUserDetails(LoginDTO loginDTO) {
+	public LoginResponseDTO getUserDetails(LoginDTO loginDTO) throws BookLendingException {
 
 		lOGGER.info("Inside LoginServiceImpl");
 
