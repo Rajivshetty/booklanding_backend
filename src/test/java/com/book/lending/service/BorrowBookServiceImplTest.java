@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.book.lending.service.test;
+package com.book.lending.service;
 
 import static org.junit.Assert.assertEquals;
 
@@ -29,14 +29,13 @@ import com.book.lending.service.BorrowBookServiceImpl;
 import com.book.lending.util.BookUtil;
 
 /**
- * @author User1
+ * @author akash
  *
  */
 
 @RunWith(MockitoJUnitRunner.class)
 public class BorrowBookServiceImplTest {
 
-	
 	@Mock
 	private BookLendingRepository bookLendingRepository;
 
@@ -45,7 +44,7 @@ public class BorrowBookServiceImplTest {
 
 	@Mock
 	private UserRepository userRepository;
-	
+
 	@InjectMocks
 	private BorrowBookServiceImpl borrowBookServiceImpl;
 
@@ -54,11 +53,14 @@ public class BorrowBookServiceImplTest {
 		MockitoAnnotations.initMocks(this);
 	}
 
+	User user = null;
+	Book book = null;
+
 	@Test
 	public void issueBookServiceTest() throws BookLendingException {
 
-		User user = new User();
-		Book book = new Book();
+		user = new User();
+		book = new Book();
 		user.setUserId(1);
 		book.setBookId(2);
 
@@ -92,12 +94,12 @@ public class BorrowBookServiceImplTest {
 	@Test(expected = BookLendingException.class)
 	public void issueBookServiceTestException() throws BookLendingException {
 
-		User user = new User();
-		Book book = new Book();
+		user = new User();
+		book = new Book();
 		user.setUserId(1);
 		book.setBookId(2);
 
-		borrowBookServiceImpl.issueBookService(11, 12); 
+		borrowBookServiceImpl.issueBookService(11, 12);
 
 	}
 

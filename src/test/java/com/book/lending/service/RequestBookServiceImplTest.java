@@ -17,6 +17,7 @@ import com.book.lending.dto.RequestBook;
 import com.book.lending.dto.ResponseDto;
 import com.book.lending.entity.Book;
 import com.book.lending.entity.BookRequest;
+import com.book.lending.entity.User;
 import com.book.lending.exception.BookLendingException;
 import com.book.lending.repository.BookRepository;
 import com.book.lending.repository.BookRequestRepository;
@@ -36,6 +37,7 @@ public class RequestBookServiceImplTest {
 
 	BookRequest bookRequest = null;
 	Book book = null;
+	User user = null;
 	RequestBook requestBook = null;
 
 	@Before
@@ -48,6 +50,8 @@ public class RequestBookServiceImplTest {
 
 		book = new Book();
 		book.setBookId(1);
+		user = new User();
+		user.setUserId(1);
 		book.setStatus("NOT AVAILABLE");
 		requestBook = new RequestBook();
 		requestBook.setBookId(1);
@@ -65,7 +69,7 @@ public class RequestBookServiceImplTest {
 				.thenReturn(Optional.of(book));
 		Mockito.when(bookRequestRepository.save(Mockito.any())).thenReturn(bookRequest);
 
-		ResponseDto actualValue = RequestBookServiceImpl.requestingBook(1,1);
+		ResponseDto actualValue = RequestBookServiceImpl.requestingBook(book.getBookId(), user.getUserId());
 		assertEquals(responseDTO.getStatusCode(), actualValue.getStatusCode());
 
 	}
@@ -79,7 +83,7 @@ public class RequestBookServiceImplTest {
 		ResponseDto responseDTO = new ResponseDto();
 		responseDTO.setStatusCode(BookUtil.BOOK_REQUEST_SUCCESS_CODE);
 
-		RequestBookServiceImpl.requestingBook(1,1);
+		RequestBookServiceImpl.requestingBook(book.getBookId(), user.getUserId());
 
 	}
 

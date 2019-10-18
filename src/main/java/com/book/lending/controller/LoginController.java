@@ -32,10 +32,11 @@ public class LoginController {
 	LoginService loginService;
 
 	/**
-	 * @param LoginDTO
 	 * 
 	 * This method is used for login
-	 * @throws BookLendingException 
+	 * 
+	 * @param LoginDTO
+	 * @throws BookLendingException
 	 */
 	@PostMapping("/login")
 	public ResponseEntity<LoginResponseDTO> getUser(@RequestBody LoginDTO loginDTO) throws BookLendingException {

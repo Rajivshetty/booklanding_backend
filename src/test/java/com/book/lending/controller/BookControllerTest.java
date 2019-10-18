@@ -56,6 +56,7 @@ public class BookControllerTest {
 		addBookResponseDto.setMessage("ADDED SUCCESSFULLY");
 		Book book = new Book();
 		BeanUtils.copyProperties(addBookDto, book);
+		
 		Mockito.when(bookService.addBook(Mockito.any())).thenReturn(addBookResponseDto);
 		ResponseEntity<AddBookResponseDto> obj = bookController.addBook(addBookDto);
 		assertEquals(addBookResponseDto.getMessage(), obj.getBody().getMessage());

@@ -8,13 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.book.lending.entity.Book;
 
-/**
- * @author User1
- *
- */
+
+
 
 /**
- * @author User1
+ * @author Mahesh
  *
  */
 @Repository

@@ -18,7 +18,6 @@ import com.book.lending.entity.Book;
 import com.book.lending.repository.BookRepository;
 import com.book.lending.util.BookUtil;
 
-
 /**
  * @author Mahesh
  *
@@ -30,11 +29,13 @@ public class BookServiceImpl implements BookService {
 
 	@Autowired
 	BookRepository bookRepository;
-	
+
 	/**
+	 * This method returns the Books List in Sorting order
+	 * 
 	 * @return BookListDto
 	 * 
-	 * This method returns the Books List in Sorting order
+	 * 
 	 */
 
 	@Override
@@ -46,6 +47,7 @@ public class BookServiceImpl implements BookService {
 		List<Book> book = bookRepository.findAllByOrderByBookName();
 
 		book.stream().forEach(b -> {
+
 			BookDto bookDto = new BookDto();
 			BeanUtils.copyProperties(b, bookDto);
 			bookDtoList.add(bookDto);
@@ -59,10 +61,13 @@ public class BookServiceImpl implements BookService {
 	}
 
 	/**
+	 * This method contains the logic to add book
+	 * 
 	 * @return AddBookResponseDto
 	 * 
-	 * This method contains the logic to add book
+	 *  
 	 */
+	
 	@Override
 	public AddBookResponseDto addBook(AddBookDto addBookDto) {
 
@@ -84,10 +89,9 @@ public class BookServiceImpl implements BookService {
 			book.setCategoryId(2);
 
 		bookRepository.save(book);
+
 		AddBookResponseDto addBookResponseDto = new AddBookResponseDto();
-
 		addBookResponseDto.setMessage(BookUtil.ADDBOOK);
-
 		addBookResponseDto.setStatusCode(HttpStatus.OK.value());
 		return addBookResponseDto;
 

@@ -13,6 +13,10 @@ import com.book.lending.entity.User;
 import com.book.lending.repository.UserRepository;
 import com.book.lending.util.BookUtil;
 
+/**
+ * @author Mahesh
+ *
+ */
 @Service
 
 public class UserServiceImpl implements UserService {
@@ -20,6 +24,12 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserRepository userRepository;
+
+	/**
+	 * method is used to register a user
+	 * 
+	 * @param userRequestDto
+	 */
 
 	@Override
 	public UserResponseDto addUser(UserRequestDto userRequestDto) {
@@ -29,10 +39,9 @@ public class UserServiceImpl implements UserService {
 		User user = new User();
 		BeanUtils.copyProperties(userRequestDto, user);
 		userRepository.save(user);
+
 		UserResponseDto userResponseDto = new UserResponseDto();
-
 		userResponseDto.setMessage(BookUtil.REGISTER_SUCCESS);
-
 		userResponseDto.setStatusCode(HttpStatus.OK.value());
 		return userResponseDto;
 	}

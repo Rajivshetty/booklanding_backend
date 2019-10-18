@@ -31,10 +31,11 @@ public class LoginServiceImpl implements LoginService {
 	UserRepository userRepository;
 
 	/**
+	 * This method check whether the credentials are correct or in correct
+	 * 
 	 * @param LoginDTO
 	 * @throws BookLendingException
-	 * @return LoginResponseDTO This method check whether the credentials are
-	 *         correct or in correct
+	 * @return LoginResponseDTO
 	 */
 	@Override
 	public LoginResponseDTO getUserDetails(LoginDTO loginDTO) throws BookLendingException {

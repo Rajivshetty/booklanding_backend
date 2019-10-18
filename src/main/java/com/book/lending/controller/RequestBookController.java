@@ -30,8 +30,9 @@ public class RequestBookController {
 	RequestBookService requestBookService;
 
 	/**
-	 * @param RequestBook This method takes the request for a particular book if it
-	 *                    is not availale
+	 * This method takes the request for a particular book if it
+	 * is not availale
+	 * @param RequestBook 
 	 * @throws BookLendingException 
 	 */
 

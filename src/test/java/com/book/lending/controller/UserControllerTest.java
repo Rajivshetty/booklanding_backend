@@ -18,7 +18,7 @@ import com.book.lending.dto.UserResponseDto;
 import com.book.lending.entity.User;
 import com.book.lending.service.UserService;
 
-@RunWith(MockitoJUnitRunner.Silent.class)
+@RunWith(MockitoJUnitRunner.class)
 public class UserControllerTest {
 	
 	@InjectMocks

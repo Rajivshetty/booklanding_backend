@@ -25,26 +25,27 @@ public class UserServiceImplTest {
 	@Mock
 	UserRepository userRepo;
 
+	UserRequestDto userRequestDto = null;
+	UserResponseDto userResponseDto = null;
+	
 	@Before
 	public void setUp() {
-
-	}
-
-	@Test
-	public void testAddUser() {
-		UserRequestDto userRequestDto = null;
-		UserResponseDto userResponseDto = null;
-
 		userRequestDto = new UserRequestDto();
 		userRequestDto.setAddress("Bng");
 		userRequestDto.setPassword("mahesh");
 		userRequestDto.setPhoneNo(9898L);
 		userRequestDto.setUserEmail("mahi@gmail.com");
 		userRequestDto.setUserName("Mahesh");
-
+		
 		userResponseDto = new UserResponseDto();
 		userResponseDto.setMessage("Register Successfully");
 		userResponseDto.setStatusCode(HttpStatus.OK.value());
+		
+	}
+
+	@Test
+	public void testAddUser() {
+		
 		User user = new User();
 		user.setAddress("Bng");
 		Mockito.when(userRepo.save(Mockito.any())).thenReturn(user);

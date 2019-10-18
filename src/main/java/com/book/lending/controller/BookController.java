@@ -36,7 +36,7 @@ public class BookController {
 	BookService bookService;
 	
 	/**
-	 * 
+	 * method is used to getting all books 
 	 * @return list of all books with status code
 	 */
 	
@@ -48,7 +48,7 @@ public class BookController {
 	}
 	
 	/**
-	 * 
+	 * method is used to add a book to library
 	 * @param addBookDto gives book details for adding into books list
 	 * @return AddBookResponseDto contains message and status code
 	 */

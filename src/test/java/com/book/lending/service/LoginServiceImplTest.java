@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Optional;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -26,13 +27,18 @@ public class LoginServiceImplTest {
 	@InjectMocks
 	LoginServiceImpl loginServiceImpl;
 
-	@Test
-	public void testGetUserDetails() throws BookLendingException {
-		User user = new User();
+	User user = null;
 
+	@Before
+	public void setup() {
+		user = new User();
 		user.setUserId(1);
 		user.setUserName("raja@gmail.com");
 		user.setPassword("raja@123");
+	}
+
+	@Test
+	public void testGetUserDetails() throws BookLendingException {
 
 		LoginDTO loginDTO = new LoginDTO();
 		loginDTO.setUserEmail("raja@gmail.com");
@@ -50,17 +56,10 @@ public class LoginServiceImplTest {
 
 	@Test(expected = BookLendingException.class)
 	public void testGetUserDetailsFailure() throws BookLendingException {
-		User user = new User();
-
-		user.setUserId(1);
-		user.setUserName("raja@gmail.com");
-		user.setPassword("raja@123");
 
 		LoginDTO loginDTO = new LoginDTO();
 		loginDTO.setUserEmail("rani@gmail.com");
 		loginDTO.setPassword("raja@123");
-		LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
-		loginResponseDTO.setStatusCode(201);
 
 		loginServiceImpl.getUserDetails(loginDTO);
 
@@ -68,17 +67,10 @@ public class LoginServiceImplTest {
 
 	@Test(expected = BookLendingException.class)
 	public void testEmptyCredentials() throws BookLendingException {
-		User user = new User();
-
-		user.setUserId(1);
-		user.setUserName("raja@gmail.com");
-		user.setPassword("raja@123");
 
 		LoginDTO loginDTO = new LoginDTO();
 		loginDTO.setUserEmail("");
 		loginDTO.setPassword("raja@123");
-		LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
-		loginResponseDTO.setStatusCode(201);
 
 		loginServiceImpl.getUserDetails(loginDTO);
 

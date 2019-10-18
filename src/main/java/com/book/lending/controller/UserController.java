@@ -33,12 +33,12 @@ public class UserController {
 	UserService userService;
 
 	/**
-	 * 
+	 * method is used to register a user
 	 * @param userRequestDto gives user details for registration
 	 * @return UserResponseDto with message
 	 */
 
-	@PostMapping("/registration")
+	@PostMapping("/register")
 	public ResponseEntity<UserResponseDto> addUser(@RequestBody UserRequestDto userRequestDto) {
 
 		log.debug("user registration method in user controller");

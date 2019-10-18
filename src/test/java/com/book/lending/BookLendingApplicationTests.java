@@ -1,6 +1,5 @@
 package com.book.lending;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -9,8 +8,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class BookLendingApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+	
 
 }

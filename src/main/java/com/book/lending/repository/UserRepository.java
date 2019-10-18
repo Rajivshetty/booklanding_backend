@@ -7,7 +7,7 @@ import com.book.lending.entity.User;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 /**
- * @author User1
+ * @author shiva
  *
  */
 

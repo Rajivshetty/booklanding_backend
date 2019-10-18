@@ -27,7 +27,12 @@ public class BorrowBookController {
 	@Autowired
 	private BorrowBookService borrowBookService;
 	
-
+/**
+ * This method has the logic to allot a book to a user
+ * @param borrowBookRequestDto
+ * @return
+ * @throws BookLendingException
+ */
 	@PostMapping("/books/borrow")
 	public ResponseEntity<BorrowBookResponseDto> issueBook(@RequestBody BorrowBookRequestDto borrowBookRequestDto ) throws BookLendingException {
 		

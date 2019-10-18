@@ -39,13 +39,15 @@ public class BorrowBookServiceImpl implements BorrowBookService {
 	private UserRepository userRepository;
 
 	/**
+	 * This method has the logic to allot a book to a user
+	 * 
 	 * @param bookId
 	 * @param userId
 	 * 
 	 * @return BorrowBookResponseDto
 	 * @throws BookLendingException
 	 * 
-	 * This method has the logic to allot a book to a user
+	 * 
 	 */
 	@Override
 	public BorrowBookResponseDto issueBookService(Integer bookId, Integer userId) throws BookLendingException {

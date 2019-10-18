@@ -36,10 +36,11 @@ public class RequestBookServiceImpl implements RequestBookService {
 	BookRepository bookRepository;
 
 	/**
+	 * This method takes the request for a particular book if it is not availale
+	 * 
 	 * @param RequestBook
 	 * @return ResponseDto
-	 * @throws BookLendingException This method takes the request for a particular
-	 *                              book if it is not availale
+	 * @throws BookLendingException
 	 */
 
 	@Override
